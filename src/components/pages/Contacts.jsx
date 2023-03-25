@@ -8,12 +8,6 @@ import { ContactList } from '../ContactList/ContactList';
 import { ContactForm } from '../ContactForm/ContactForm';
 
 export default function Contacts() {
-  // const dispatch = useDispatch();
-  // const isLoading = useSelector(selectLoading);
-
-  // useEffect(() => {
-  //   dispatch(fetchTasks());
-  // }, [dispatch]);
 
   return (
     <>
