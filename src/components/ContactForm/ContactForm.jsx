@@ -1,11 +1,14 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import '../ContactForm/ContactForm.css';
-import { addContact, fetchContacts } from '../redux/contactsOperations';
+import {
+  addContact,
+  fetchContacts,
+} from '../redux/contacts/contactsOperations';
 
 export const ContactForm = () => {
   const [name, setName] = useState('');
-  const [number, setNumber] = useState('')
+  const [number, setNumber] = useState('');
 
   const dispatch = useDispatch();
   const arrayOfContacts = useSelector(state => state.contacts.items);
@@ -17,13 +20,13 @@ export const ContactForm = () => {
     const { name, value } = event.currentTarget;
     switch (name) {
       case 'name':
-        setName(value)
+        setName(value);
         break;
       case 'number':
-        setNumber(value)
+        setNumber(value);
         break;
       default:
-        console.log('Something wrong')
+        console.log('Something wrong');
         break;
     }
   };
@@ -34,7 +37,7 @@ export const ContactForm = () => {
       alert(`${findRepeateName.name} is already in contacts`);
       return;
     }
-    await dispatch(addContact({ name, phone: number }));
+    await dispatch(addContact({name, number}));
     dispatch(fetchContacts());
     reset();
   };
@@ -76,5 +79,5 @@ export const ContactForm = () => {
           Add contact
         </button>
       </form>
-    );
-}
+  );
+};
