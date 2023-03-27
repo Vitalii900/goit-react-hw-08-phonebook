@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import { loginSuccess } from '../../utils/notification';
 
 axios.defaults.baseURL = 'https://connections-api.herokuapp.com';
 
@@ -30,6 +31,7 @@ export const logIn = createAsyncThunk(
     try {
       const {data} = await axios.post('/users/login', credentials);
       setAuthHeader(data.token);
+      loginSuccess();
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

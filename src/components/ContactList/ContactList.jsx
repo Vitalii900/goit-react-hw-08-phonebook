@@ -1,9 +1,11 @@
 import '../ContactList/ContactList.css';
 import { useSelector, useDispatch } from 'react-redux';
+import { DeleteIcon, PhoneIcon } from '@chakra-ui/icons';
 import {
   deleteContact,
   fetchContacts,
 } from '../redux/contacts/contactsOperations';
+import { Button } from '@chakra-ui/react';
 
 export function ContactList() {
   const dispatch = useDispatch();
@@ -24,14 +26,15 @@ export function ContactList() {
         return (
           <li className="item" key={contact.id}>
             <p className="contact">
-              {contact.name}: {contact.phone}
+              <PhoneIcon />
+              {contact.name}: {contact.number}
             </p>
-            <button
-              className="deleteButton"
+            <Button
+              colorScheme="red"
               onClick={() => deleteContactById(contact.id)}
             >
-              Delete
-            </button>
+              <DeleteIcon />
+            </Button>
           </li>
         );
       })}

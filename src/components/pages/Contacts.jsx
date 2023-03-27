@@ -10,13 +10,13 @@ import { ContactForm } from '../ContactForm/ContactForm';
 export default function Contacts() {
 
   return (
-    <>
+    <main>
       <Helmet>
         <title>Your contacts</title>
       </Helmet>
       <ContactForm></ContactForm>
       <Filter></Filter>
       <ContactList></ContactList>
-    </>
+    </main>
   );
 }
