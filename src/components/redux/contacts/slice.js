@@ -21,9 +21,9 @@ export const myContactsReducerSlice = createSlice({
     [fetchContacts.pending]: handlePending,
     [addContact.pending]: handlePending,
     [deleteContact.pending]: handlePending,
-    [fetchContacts.pending]: handleRejected,
-    [addContact.pending]: handleRejected,
-    [deleteContact.pending]: handleRejected,
+    [fetchContacts.rejected]: handleRejected,
+    [addContact.rejected]: handleRejected,
+    [deleteContact.rejected]: handleRejected,
     [addContact.fulfilled]: state => {
       state.isLoading = false;
       state.error = null;

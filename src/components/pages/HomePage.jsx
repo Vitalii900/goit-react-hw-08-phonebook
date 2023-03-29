@@ -1,26 +1,19 @@
-const styles = {
-  container: {
-    minHeight: 'calc(100vh - 100px)',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  title: {
-    fontWeight: 500,
-    fontSize: 48,
-    textAlign: 'center',
-  },
-};
+import { Text, Box, Image } from '@chakra-ui/react';
 
 export default function Home() {
   return (
-    <div style={styles.container}>
-      <h1 style={styles.title}>
-        Task manager welcome page{' '}
-        <span role="img" aria-label="Greeting icon">
-          💁‍♀️
-        </span>
-      </h1>
-    </div>
+    <Box>
+      <Text textAlign={['center']} fontSize="4xl">
+        Phonebook
+      </Text>
+      <Image
+        src="https://cdn-icons-png.flaticon.com/512/5439/5439135.png"
+        boxSize="350px"
+        m="auto"
+      />
+      <Text textAlign={['center']} fontSize="xl">
+        Log in and get access to your contacts from any device
+      </Text>
+    </Box>
   );
 }

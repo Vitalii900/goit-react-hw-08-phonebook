@@ -5,7 +5,7 @@ import {
   deleteContact,
   fetchContacts,
 } from '../redux/contacts/contactsOperations';
-import { Button } from '@chakra-ui/react';
+import { Button, Text } from '@chakra-ui/react';
 
 export function ContactList() {
   const dispatch = useDispatch();
@@ -21,23 +21,30 @@ export function ContactList() {
   }
 
   return (
-    <ul className="list">
-      {visibleContacts.map(contact => {
-        return (
-          <li className="item" key={contact.id}>
-            <p className="contact">
-              <PhoneIcon />
-              {contact.name}: {contact.number}
-            </p>
-            <Button
-              colorScheme="red"
-              onClick={() => deleteContactById(contact.id)}
-            >
-              <DeleteIcon />
-            </Button>
-          </li>
-        );
-      })}
-    </ul>
+    <>
+      {arrayOfContacts.length === 0 ? (
+        <Text textAlign={['center']} fontSize="xl">
+          You don`t have a contacts yet!
+        </Text>
+      ) : (
+        <ul className="list">
+          {visibleContacts.map(contact => {
+            return (
+              <li className="item" key={contact.id}>
+                <p className="contact">
+                  <PhoneIcon /> {contact.name}: {contact.number}
+                </p>
+                <Button
+                  colorScheme="red"
+                  onClick={() => deleteContactById(contact.id)}
+                >
+                  <DeleteIcon />
+                </Button>
+              </li>
+            );
+          })}
+        </ul>
+      )}
+    </>
   );
 }

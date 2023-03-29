@@ -6,6 +6,7 @@ import {
   fetchContacts,
 } from '../redux/contacts/contactsOperations';
 import { Button, Input } from '@chakra-ui/react';
+import { repeatName } from '../utils/notification';
 
 export const ContactForm = () => {
   const [name, setName] = useState('');
@@ -35,7 +36,7 @@ export const ContactForm = () => {
   const sendData = async event => {
     event.preventDefault();
     if (findRepeateName) {
-      alert(`${findRepeateName.name} is already in contacts`);
+      repeatName(findRepeateName.name);
       return;
     }
     await dispatch(addContact({name, number}));
