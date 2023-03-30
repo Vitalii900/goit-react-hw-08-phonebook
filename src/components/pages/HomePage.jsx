@@ -11,7 +11,7 @@ export default function Home() {
         boxSize="350px"
         m="auto"
       />
-      <Text textAlign={['center']} fontSize="xl">
+      <Text textAlign={['center']} fontSize="2xl">
         Log in and get access to your contacts from any device
       </Text>
     </Box>
